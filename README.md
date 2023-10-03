@@ -1,1 +1,2 @@
-Um menu de aplicativos sobre a aula de DS
+
+**An application menu about the DS class**
