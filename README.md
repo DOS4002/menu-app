@@ -1,2 +1,2 @@
 
-**An application menu about the DS class**
+**An application menu about the DS class 🧑‍💻**
