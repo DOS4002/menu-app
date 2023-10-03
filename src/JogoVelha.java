@@ -6,19 +6,17 @@
     import java.awt.event.ActionListener;
 
 
-    public class JogoVelha extends JFrame implements ActionListener {
 
-        private boolean empate = false;
-        private JTabbedPane tabbedPane;
+    public class JogoVelha extends JDialog implements ActionListener {
+
         private boolean jogador1Vez = true;
         private boolean jogoAcabou = false;
         private int pontosPlayer1 = 0;
         private int pontosPlayer2 = 0;
         private JTextField nomeJogo1;
         private JTextField nomeJogo2;
-        private JLabel nome1;
-        private JLabel nome2;
-        private JButton game;
+        private JLabel nomePlayer1;
+        private JLabel nomePlayer2;
         private JButton newGame;
         private JButton resetScore; // Botão para zerar o placar
         private JButton[][] buttons;
@@ -27,24 +25,25 @@
         private JLabel pontosLabel1;
         private JLabel pontosLabel2;
 
-        public JogoVelha() {
+        public JogoVelha(Menu tictacToe) {
             this.setTitle("Jogo da Velha");
             this.setSize(780, 630);
             this.setLocationRelativeTo(null);
             this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             this.getContentPane().setBackground(Color.WHITE);
             this.setResizable(false);
+            this.setModal(true);
 
             JTabbedPane tabbedPane = new JTabbedPane();
 
             JPanel jogador1 = new JPanel();
             jogador1.setLayout(null);
 
-            nome1 = new JLabel("Nome do jogador 'X': ");
-            nome1.setBounds(10, 10, 200, 50);
-            nome1.setFont(new Font("Poppins", Font.PLAIN, 20));
-            nome1.setForeground(Color.BLACK);
-            jogador1.add(nome1);
+            nomePlayer1 = new JLabel("Nome do jogador  X: ");
+            nomePlayer1.setBounds(10, 10, 200, 50);
+            nomePlayer1.setFont(new Font("Poppins", Font.PLAIN, 20));
+            nomePlayer1.setForeground(Color.BLACK);
+            jogador1.add(nomePlayer1);
 
             nomeJogo1 = new JTextField();
             nomeJogo1.setBounds(220, 20, 170, 30);
@@ -63,11 +62,15 @@
             JPanel jogador2 = new JPanel();
             jogador2.setLayout(null);
 
-            nome2 = new JLabel("Nome do jogador 'O': ");
-            nome2.setBounds(10, 10, 200, 50);
-            nome2.setFont(new Font("Poppins", Font.PLAIN, 20));
-            nome2.setForeground(Color.BLACK);
-            jogador2.add(nome2);
+            nomePlayer2 = new JLabel("Nome do jogador  O: ");
+            nomePlayer2.setBounds(10, 10, 200, 50);
+            nomePlayer2.setFont(new Font("Poppins", Font.PLAIN, 20));
+            nomePlayer2.setForeground(Color.BLACK);
+            jogador2.add(nomePlayer2);
+
+            
+            
+            
 
             nomeJogo2 = new JTextField();
             nomeJogo2.setBounds(220, 20, 170, 30);
@@ -78,7 +81,7 @@
             buttonPlayer2.setBackground(new Color(255, 255, 255));
             buttonPlayer2.setBounds(5, 100, 100, 40);
             buttonPlayer2.setFocusPainted(false);
-            buttonPlayer2.addActionListener(this::actionPerformed); // Usando o mesmo ActionListener para ambos os botões
+            buttonPlayer2.addActionListener(this::ActionPlayer2); 
             jogador2.add(buttonPlayer2);
 
             tabbedPane.addTab("Jogador O", null, jogador2, "Digite o nome do segundo jogador:");
@@ -95,9 +98,9 @@
             imgTab.setIcon(newBoard);
             gameRun.add(imgTab);
 
-            newGame = new JButton("Novo Jogo");
+            newGame = new JButton("Nova Partida");
             newGame.setBackground(new Color(255, 255, 255));
-            newGame.setBounds(600, 200, 100, 40);
+            newGame.setBounds(600, 200, 130, 40);
             newGame.setFocusPainted(false);
             gameRun.add(newGame);
 
@@ -132,6 +135,8 @@
             pontosLabel2.setBounds(500, 310, 300, 80);
             pontosLabel2.setFont(new Font("Poppins", Font.PLAIN, 21));
             gameRun.add(pontosLabel2);
+
+
 
             // Botões do jogo da velha
             buttons = new JButton[3][3];
@@ -278,26 +283,25 @@
             reiniciarJogo(); // Reiniciar o jogo após zerar o placar
         }
 
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            if (e.getSource() instanceof JButton) {
-                JButton button = (JButton) e.getSource();
-                if (button.getText().equals("Pronto")) {
-                    if (button.getParent().equals(tabbedPane.getComponentAt(0))) {
-                        txtPlayer1.setText("Player X: " + nomeJogo1.getText() + "-");
-                        nomeJogo1.setEnabled(false);
-                    } else if (button.getParent().equals(tabbedPane.getComponentAt(1))) {
-                        txtPlayer2.setText("Player O: " + nomeJogo2.getText() + "-");
-                        nomeJogo2.setEnabled(false);
-                    }
-                }
-            }
-        }
+       
+
+
 
         private void atualizarPontuacao() {
             pontosLabel1.setText(nomeJogo1.getText()+" - Pontos: " + pontosPlayer1);
             pontosLabel2.setText(nomeJogo2.getText()+ " - Pontos: " + pontosPlayer2);
             
+        }
+
+        @Override
+        public void actionPerformed(ActionEvent event) {
+           nomeJogo1.setEnabled(false);
+           pontosLabel1.setText(nomeJogo1.getText()+" - Pontos: ");
+        }
+
+        public void ActionPlayer2(ActionEvent event){
+            nomeJogo2.setEnabled(false);
+             pontosLabel2.setText(nomeJogo2.getText()+ " - Pontos: ");
         }
 
     }

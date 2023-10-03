@@ -2,10 +2,9 @@ import javax.swing.*;
 import javax.swing.border.LineBorder;
 
 import java.awt.*;
-import java.awt.Color;
 
 import javax.swing.plaf.synth.ColorType;
-import java.awt.Font;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
@@ -19,30 +18,24 @@ public  class Calculadora extends JDialog implements ActionListener{
 
 
 	
-		public Calculadora(){	
-			this.setTitle("Formulário");
+		public Calculadora(Menu calculadora){	
+			this.setTitle("Formulario");
 			this.setSize(680, 600);	
 			this.setLocationRelativeTo(null);
-	        this.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			this.getContentPane().setBackground(Color.black);
+			this.setModal(true);
 			this.setResizable(false);
 	
 		
-				 JPanel painel = new JPanel() {
-			            @Override
-			            /* Criando um paint para desenha a imagem e chamar ela*/
-			            protected void paintComponent(Graphics g) {
-			            	/* Chamando a variavel "g" com o super*/
-			                super.paintComponent(g);
-			                Image img = new ImageIcon("src/imgCalc/ceu.jpg").getImage();
-			                /* drawImage serve para desenhar a imagem, como aumentar a imagem ou mexer ou eixo x e y*/
-			                g.drawImage(img, 0, 0, getWidth(), 670, this);
-			            }
-			        };
-			        painel.setLayout(null);
-			
+					JLabel imgCalc = new JLabel();
+					imgCalc.setBounds(0, 0, 670, 670);
+					ImageIcon caio = new ImageIcon("src/imgCalc/ceu.jpg");
+					Image boardCaio = caio.getImage().getScaledInstance(imgCalc.getWidth(), imgCalc.getHeight(), Image.SCALE_SMOOTH);
+					ImageIcon newCaio = new ImageIcon(boardCaio);
+					imgCalc.setIcon(newCaio);
+					add(imgCalc);
+						  
 			JButton soma = new JButton("Somar");
-			LineBorder line = new LineBorder(Color.blue, 2, true);
 			soma.setBounds(20,400,150,30);
 			soma.setFont(new Font("Poppins", Font.PLAIN,20));
 			soma.setForeground(Color.BLACK);
@@ -82,10 +75,6 @@ public  class Calculadora extends JDialog implements ActionListener{
 			divisao.addActionListener(this::divisao);
 			
 	
-			painel.add(soma);
-			painel.add(subtracao);
-			painel.add(multiplicacao);
-			painel.add(divisao);
 			
 			
 			
@@ -122,29 +111,25 @@ public  class Calculadora extends JDialog implements ActionListener{
 			
 			add(label2);
 			
-			title = new JLabel("Calculadora Básica");
+			title = new JLabel("Calculadora Basica");
 			title.setBounds(215,20,400,300);
 			title.setFont(new Font("Poppins",Font.PLAIN,30));
 			title.setForeground(Color.WHITE);
 			add(title);
 			
-			/* adicionando os buttons,TextsFilds,label e title em cima do painel para a imagem ficar no background*/
-			painel.add(soma);
-			painel.add(subtracao);
-			painel.add(multiplicacao);
-			painel.add(divisao);
-			painel.add(num2);
-			painel.add(num1);
-			painel.add(label1);
-			painel.add(label2);
-			painel.add(title);
-			
-			
+		
+				imgCalc.add(title);
+				imgCalc.add(subtracao);
+				imgCalc.add(soma);
+				imgCalc.add(label2);
+				imgCalc.add(divisao);
+				imgCalc.add(multiplicacao);
+				imgCalc.add(label1);
 			
 			this.setLayout(null);
 			this.setVisible(true);	
 			/* setContentPane serve para mostrar qual painel vai ser principal*/
-			  setContentPane(painel);
+		
 			}
 		
 		
@@ -157,7 +142,7 @@ public  class Calculadora extends JDialog implements ActionListener{
 			Double soma = numero1 + numero2;
 
 
-			JOptionPane.showMessageDialog(null,"A soma é: " + soma);
+			JOptionPane.showMessageDialog(null,"A soma ï¿½: " + soma);
 			
 			
 	}
@@ -171,7 +156,7 @@ public  class Calculadora extends JDialog implements ActionListener{
 			
 			
 			
-			JOptionPane.showMessageDialog(null,"O resto é: " + subtracao);
+			JOptionPane.showMessageDialog(null,"O resto ï¿½: " + subtracao);
 		
 	}
 		
@@ -183,7 +168,7 @@ public  class Calculadora extends JDialog implements ActionListener{
 			Double multiplicacao = numero1 * numero2;
 			
 			
-			JOptionPane.showMessageDialog(null,"O produto é: " + multiplicacao);
+			JOptionPane.showMessageDialog(null,"O produto ï¿½: " + multiplicacao);
 			
 	}
 		
@@ -197,9 +182,9 @@ public  class Calculadora extends JDialog implements ActionListener{
 			
 		
 			if(numero2 == 0) {
-				JOptionPane.showMessageDialog(null,"É impossivel dividir por 0","atenção",JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(null,"ï¿½ impossivel dividir por 0","atenï¿½ï¿½o",JOptionPane.ERROR_MESSAGE);
 			}else {
-				JOptionPane.showMessageDialog(null,"O quoeficiente é: " + divisao);
+				JOptionPane.showMessageDialog(null,"O quoeficiente ï¿½: " + divisao);
 			}
 			
 	
