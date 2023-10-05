@@ -38,10 +38,6 @@ private ImageIcon imagemCarro;
 			this.setResizable(false);
 			this.setLocationRelativeTo(null);
 
-	
-
-			 
-
 
 			JLabel imgLogo = new JLabel();
             imgLogo.setBounds(20, -40, 240, 220);
@@ -53,32 +49,32 @@ private ImageIcon imagemCarro;
 		          
 
 			title = new JLabel("Concessionária CD AutoCars");
-			title.setBounds(215,-70,400,300);
-			title.setFont(new Font("Poppins",Font.PLAIN,30));
+			title.setBounds(245,-65,400,300);
+			title.setFont(new Font("Poppins",Font.BOLD,25));
 			title.setForeground(Color.BLACK);
 			add(title);
 			
 			nome = new JLabel("Nome:");
 			nome.setBounds(10,160,90,50);
-			nome.setFont(new Font("Poppins",Font.PLAIN,20));
+			nome.setFont(new Font("Poppins",Font.PLAIN,18));
 			nome.setForeground(Color.BLACK);
 			add(nome);
 			
 			txNome = new JTextField();
 			txNome.setBounds(70,170,170,30);
-			txNome.setFont(new Font("Poppins",Font.PLAIN,20));
+			txNome.setFont(new Font("Poppins",Font.PLAIN,10));
 			add(txNome);
 			
 			
 			celular = new JLabel("Celular:");
 			celular.setBounds(250,160,90,50);
-			celular.setFont(new Font("Poppins",Font.PLAIN,20));
+			celular.setFont(new Font("Poppins",Font.PLAIN,18));
 			celular.setForeground(Color.BLACK);
 			add(celular);
 			
 			txCelular = new JTextField();
 			txCelular.setBounds(320,170,170,30);
-			txCelular.setFont(new Font("Poppins",Font.PLAIN,20));
+			txCelular.setFont(new Font("Poppins",Font.PLAIN,18));
 			txCelular.addKeyListener(new KeyListener() {
 			    @Override
 			    public void keyTyped(KeyEvent e) {
@@ -103,13 +99,13 @@ private ImageIcon imagemCarro;
 
 			email = new JLabel("Email:");
 			email.setBounds(500,160,90,50);
-			email.setFont(new Font("Poppins",Font.PLAIN,20));
+			email.setFont(new Font("Poppins",Font.PLAIN,18));
 			email.setForeground(Color.BLACK);
 			add(email);
 			
 			txEmail = new JTextField();
 			txEmail.setBounds(555,170,170,30);
-			txEmail.setFont(new Font("Poppins",Font.PLAIN,20));
+			txEmail.setFont(new Font("Poppins",Font.PLAIN,18));
 			// Adicione o KeyListener para validar o campo de email
 			txEmail.addKeyListener(new KeyListener() {
 			    @Override
@@ -134,7 +130,7 @@ private ImageIcon imagemCarro;
 
 			marca = new JLabel("Marca:");
 			marca.setBounds(10,230,90,50);
-			marca.setFont(new Font("Poppins",Font.PLAIN,20));
+			marca.setFont(new Font("Poppins",Font.PLAIN,18));
 			marca.setForeground(Color.BLACK);
 			add(marca);
 			
@@ -154,7 +150,7 @@ private ImageIcon imagemCarro;
 			
 			modelo = new JLabel("Modelo:");
 			modelo.setBounds(10,300,90,50);
-			modelo.setFont(new Font("Poppins",Font.PLAIN,20));
+			modelo.setFont(new Font("Poppins",Font.PLAIN,18));
 			modelo.setForeground(Color.BLACK);
 			add(modelo);
 			
@@ -214,7 +210,7 @@ private ImageIcon imagemCarro;
 			
 			 	opcionais = new JLabel("Opcionais:");
 		        opcionais.setBounds(10, 440, 100, 30);
-		        opcionais.setFont(new Font("Poppins", Font.PLAIN, 20));
+		        opcionais.setFont(new Font("Poppins", Font.PLAIN, 18));
 		        opcionais.setForeground(Color.BLACK);
 		        add(opcionais);
 		        

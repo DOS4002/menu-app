@@ -16,21 +16,22 @@ public class Menu extends JFrame{
 	JMenuItem sobreDiego;
 	JMenuBar navBar;
 	JLabel title;
+	JLabel subtitle;
 	private Concessionaria concessionariaDialog;
 	private Calculadora calculadoraDialog;
 	private JogoVelha tictactoeDialog;
 	
 	public Menu() {
 		this.setTitle("Projetos");
-		this.setSize(3000, 3000);
 		this.setLocationRelativeTo(null);
+		this.setExtendedState(MAXIMIZED_BOTH);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.getContentPane().setBackground(new Color(255, 255, 255));
 		this.setResizable(false);
 		
 
 		
-		 func = new JMenu("Funcionamentos");
+		 func = new JMenu("Arquivo");
 		 calculadora = new JMenu("Calculadora");
 		 games = new JMenu("Jogos");
 		 concCarros = new JMenu("Concessionaria");
@@ -71,7 +72,7 @@ public class Menu extends JFrame{
 			protected void paintComponent(Graphics g) {
 				/* Chamando a variavel "g" com o super*/
 				super.paintComponent(g);
-				Image img = new ImageIcon("src/imgMenu/fundo_menu.png").getImage();
+				Image img = new ImageIcon("src/imgMenu/calvin-and-hobbes.jpg").getImage();
 				/* drawImage serve para desenhar a imagem, como aumentar a imagem ou mexer ou eixo x e y*/
 				g.drawImage(img, 0, 0, getWidth(), getHeight(), this);
 			}
@@ -79,13 +80,21 @@ public class Menu extends JFrame{
 		painel.setLayout(null);
 		
 		title = new JLabel();
-		title.setText("Seja bem-vindo ao nosso menu de apps");
+		title.setText("Seja bem-vindo ao CD Menu");
 		title.setBounds(340, 20, 900, 400);
 		title.setHorizontalAlignment(SwingConstants.CENTER);
-		title.setFont(new Font("Poppins",Font.PLAIN,50));
+		title.setFont(new Font("Paytone One",Font.PLAIN,50));
 		title.setForeground(Color.WHITE);
 		this.add(title);
 	
+		subtitle = new JLabel();
+		subtitle.setText("Caio e Diego");
+		subtitle.setBounds(340, 100, 900, 400);	
+		subtitle.setHorizontalAlignment(SwingConstants.CENTER);	
+		subtitle.setFont(new Font("Poppins",Font.PLAIN,25));
+		subtitle.setForeground(Color.WHITE);	
+		this.add(subtitle);
+
 		calc.addActionListener(new ActionListener() {
 
 			@Override
@@ -164,6 +173,7 @@ public class Menu extends JFrame{
 		});
 
 		painel.add(title);
+		painel.add(subtitle);
 		setContentPane(painel);
 		this.setLayout(null);
 		this.setVisible(true);

@@ -27,17 +27,17 @@ public  class Calculadora extends JDialog implements ActionListener{
 			this.setResizable(false);
 	
 		
-					JLabel imgCalc = new JLabel();
-					imgCalc.setBounds(0, 0, 670, 670);
-					ImageIcon caio = new ImageIcon("src/imgCalc/ceu.jpg");
-					Image boardCaio = caio.getImage().getScaledInstance(imgCalc.getWidth(), imgCalc.getHeight(), Image.SCALE_SMOOTH);
-					ImageIcon newCaio = new ImageIcon(boardCaio);
-					imgCalc.setIcon(newCaio);
-					add(imgCalc);
+			JLabel background = new JLabel();
+			background.setBounds(0, 0, 670, 670);
+			ImageIcon backgroundImage = new ImageIcon("src/imgCalc/ceu.jpg");
+			Image editBackground = backgroundImage.getImage().getScaledInstance(background.getWidth(), background.getHeight(), Image.SCALE_SMOOTH);
+			ImageIcon backgroundConstructor = new ImageIcon(editBackground);
+			background.setIcon(backgroundConstructor);
+			add(background);
 						  
 			JButton soma = new JButton("Somar");
 			soma.setBounds(20,400,150,30);
-			soma.setFont(new Font("Poppins", Font.PLAIN,20));
+			soma.setFont(new Font("Poppins", Font.PLAIN,18));
 			soma.setForeground(Color.BLACK);
 			soma.setBackground(Color.white);
 			add(soma);
@@ -48,7 +48,7 @@ public  class Calculadora extends JDialog implements ActionListener{
 			
 			JButton subtracao= new JButton("Subtrair");
 			subtracao.setBounds(175,400,150,30);
-			subtracao.setFont(new Font("Poppins", Font.PLAIN,20));
+			subtracao.setFont(new Font("Poppins", Font.PLAIN,18));
 			subtracao.setForeground(Color.BLACK);
 			subtracao.setBackground(Color.white);
 			add(subtracao);
@@ -58,7 +58,7 @@ public  class Calculadora extends JDialog implements ActionListener{
 			
 			JButton multiplicacao = new JButton("Multiplicar");
 			multiplicacao.setBounds(333,400,150,30);
-			multiplicacao.setFont(new Font("Poppins", Font.PLAIN,20));
+			multiplicacao.setFont(new Font("Poppins", Font.PLAIN,18));
 			multiplicacao.setForeground(Color.BLACK);
 			multiplicacao.setBackground(Color.white);
 			add(multiplicacao);
@@ -68,7 +68,7 @@ public  class Calculadora extends JDialog implements ActionListener{
 			
 			JButton divisao = new JButton("Dividir");
 			divisao.setBounds(490,400,150,30);
-			divisao.setFont(new Font("Poppins", Font.PLAIN,20));
+			divisao.setFont(new Font("Poppins", Font.PLAIN,18));
 			divisao.setForeground(Color.BLACK);
 			divisao.setBackground(Color.white);
 			add(divisao);
@@ -80,7 +80,7 @@ public  class Calculadora extends JDialog implements ActionListener{
 			
 			num2 = new JTextField();
 			num2.setBounds(420,300,170,30);
-			num2.setFont(new Font("Poppins",Font.PLAIN,30));
+			num2.setFont(new Font("Poppins",Font.PLAIN,18));
 			num2.setBackground(Color.white);  
 			num2.setForeground(Color.BLACK);
 			add(num2);
@@ -89,7 +89,7 @@ public  class Calculadora extends JDialog implements ActionListener{
 			
 			num1 = new JTextField();
 			num1.setBounds(100,300,170,30);
-			num1.setFont(new Font("Poppins",Font.PLAIN,30));
+			num1.setFont(new Font("Poppins",Font.PLAIN,18));
 			num1.setBackground(Color.white);
 			num1.setForeground(Color.BLACK);
 			add(num1);
@@ -98,7 +98,7 @@ public  class Calculadora extends JDialog implements ActionListener{
 			
 			JLabel label1 = new JLabel("Numero 1");
 			label1.setBounds(100,260,90,50);
-			label1.setFont(new Font("Arial",Font.PLAIN,20));
+			label1.setFont(new Font("Arial",Font.PLAIN,15));
 			label1.setForeground(Color.WHITE);
 			add(label1);
 			
@@ -106,25 +106,25 @@ public  class Calculadora extends JDialog implements ActionListener{
 			
 			JLabel label2 = new JLabel("Numero 2");
 			label2.setBounds(420,260,90,50);
-			label2.setFont(new Font("Poppins",Font.PLAIN,20));
+			label2.setFont(new Font("Poppins",Font.PLAIN,15));
 			label2.setForeground(Color.WHITE);
 			
 			add(label2);
 			
 			title = new JLabel("Calculadora Basica");
 			title.setBounds(215,20,400,300);
-			title.setFont(new Font("Poppins",Font.PLAIN,30));
+			title.setFont(new Font("Poppins",Font.BOLD,26));
 			title.setForeground(Color.WHITE);
 			add(title);
 			
 		
-				imgCalc.add(title);
-				imgCalc.add(subtracao);
-				imgCalc.add(soma);
-				imgCalc.add(label2);
-				imgCalc.add(divisao);
-				imgCalc.add(multiplicacao);
-				imgCalc.add(label1);
+				background.add(title);
+				background.add(subtracao);
+				background.add(soma);
+				background.add(label2);
+				background.add(divisao);
+				background.add(multiplicacao);
+				background.add(label1);
 			
 			this.setLayout(null);
 			this.setVisible(true);	

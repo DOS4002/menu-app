@@ -24,6 +24,7 @@
         private JLabel txtPlayer1;
         private JLabel pontosLabel1;
         private JLabel pontosLabel2;
+        private JLabel title_tictac;
 
         public JogoVelha(Menu tictacToe) {
             this.setTitle("Jogo da Velha");
@@ -41,13 +42,13 @@
 
             nomePlayer1 = new JLabel("Nome do jogador  X: ");
             nomePlayer1.setBounds(10, 10, 200, 50);
-            nomePlayer1.setFont(new Font("Poppins", Font.PLAIN, 20));
+            nomePlayer1.setFont(new Font("Poppins", Font.PLAIN, 17));
             nomePlayer1.setForeground(Color.BLACK);
             jogador1.add(nomePlayer1);
 
             nomeJogo1 = new JTextField();
             nomeJogo1.setBounds(220, 20, 170, 30);
-            nomeJogo1.setFont(new Font("Poppins", Font.PLAIN, 20));
+            nomeJogo1.setFont(new Font("Poppins", Font.PLAIN, 17));
             jogador1.add(nomeJogo1);
 
             JButton buttonPlayer1 = new JButton("Pronto");
@@ -64,7 +65,7 @@
 
             nomePlayer2 = new JLabel("Nome do jogador  O: ");
             nomePlayer2.setBounds(10, 10, 200, 50);
-            nomePlayer2.setFont(new Font("Poppins", Font.PLAIN, 20));
+            nomePlayer2.setFont(new Font("Poppins", Font.PLAIN, 17));
             nomePlayer2.setForeground(Color.BLACK);
             jogador2.add(nomePlayer2);
 
@@ -74,7 +75,7 @@
 
             nomeJogo2 = new JTextField();
             nomeJogo2.setBounds(220, 20, 170, 30);
-            nomeJogo2.setFont(new Font("Poppins", Font.PLAIN, 20));
+            nomeJogo2.setFont(new Font("Poppins", Font.PLAIN, 18));
             jogador2.add(nomeJogo2);
 
             JButton buttonPlayer2 = new JButton("Pronto");
@@ -90,13 +91,20 @@
             gameRun.setLayout(null);
             tabbedPane.addTab("Jogar", null, gameRun, "Se prepare para jogar!");
 
-            JLabel imgTab = new JLabel();
-            imgTab.setBounds(10, 90, 340, 320);
-            ImageIcon boardimg = new ImageIcon("src/gameImg/tictac.png");
-            Image boardRe = boardimg.getImage().getScaledInstance(imgTab.getWidth(), imgTab.getHeight(), Image.SCALE_SMOOTH);
-            ImageIcon newBoard = new ImageIcon(boardRe);
-            imgTab.setIcon(newBoard);
-            gameRun.add(imgTab);
+            title_tictac = new JLabel("JOGO DA VELHA");
+            title_tictac.setBounds(510, 90, 200, 50);    
+            title_tictac.setFont(new Font("Poppins", Font.BOLD, 21));
+            title_tictac.setForeground(Color.BLACK);
+            gameRun.add(title_tictac);
+
+
+            JLabel boardImage = new JLabel();
+            boardImage.setBounds(10, 90, 340, 320);
+            ImageIcon gameBoard = new ImageIcon("src/gameImg/tictac.png");
+            Image editBoard = gameBoard.getImage().getScaledInstance(boardImage.getWidth(), boardImage.getHeight(), Image.SCALE_SMOOTH);
+            ImageIcon boardConstructor = new ImageIcon(editBoard);
+            boardImage.setIcon(boardConstructor);
+            gameRun.add(boardImage);
 
             newGame = new JButton("Nova Partida");
             newGame.setBackground(new Color(255, 255, 255));
@@ -114,26 +122,26 @@
             txtPlayer1.setText("");
             txtPlayer1.setForeground(Color.BLACK);
             txtPlayer1.setBounds(500, 90, 300, 80);
-            txtPlayer1.setFont(new Font("Poppins", Font.PLAIN, 20));
+            txtPlayer1.setFont(new Font("Poppins", Font.PLAIN, 17));
             gameRun.add(txtPlayer1);
 
             txtPlayer2 = new JLabel();
             txtPlayer2.setText("");
             txtPlayer2.setForeground(Color.BLACK);
             txtPlayer2.setBounds(500, 170, 300, 80);
-            txtPlayer2.setFont(new Font("Poppins", Font.PLAIN, 20));
+            txtPlayer2.setFont(new Font("Poppins", Font.PLAIN, 17));
             gameRun.add(txtPlayer2);
 
             pontosLabel1 = new JLabel(nomeJogo1.getText()+" - Pontos: " + pontosPlayer1);
             pontosLabel1.setForeground(Color.BLACK);
             pontosLabel1.setBounds(500, 270, 300, 80);
-            pontosLabel1.setFont(new Font("Poppins", Font.PLAIN, 21));
+            pontosLabel1.setFont(new Font("Poppins", Font.PLAIN, 18));
             gameRun.add(pontosLabel1);
 
             pontosLabel2 = new JLabel(nomeJogo2.getText()+ " - Pontos: " + pontosPlayer2);
             pontosLabel2.setForeground(Color.BLACK);
             pontosLabel2.setBounds(500, 310, 300, 80);
-            pontosLabel2.setFont(new Font("Poppins", Font.PLAIN, 21));
+            pontosLabel2.setFont(new Font("Poppins", Font.PLAIN, 18));
             gameRun.add(pontosLabel2);
 
 
@@ -159,12 +167,12 @@
                                 if (button.getText().isEmpty()) {
                                     if (jogador1Vez) {
                                         button.setText("X");
-                                        button.setFont(new Font("Poppins", Font.PLAIN, 80));
+                                        button.setFont(new Font("Poppins h", Font.PLAIN, 80));
 
                                         jogador1Vez = false;
                                     } else {
                                         button.setText("O");
-                                        button.setFont(new Font("Poppins", Font.PLAIN, 80));
+                                        button.setFont(new Font("Poppins h", Font.PLAIN, 80));
 
                                         jogador1Vez = true;
                                     }
@@ -283,9 +291,6 @@
             reiniciarJogo(); // Reiniciar o jogo após zerar o placar
         }
 
-       
-
-
 
         private void atualizarPontuacao() {
             pontosLabel1.setText(nomeJogo1.getText()+" - Pontos: " + pontosPlayer1);
@@ -296,12 +301,14 @@
         @Override
         public void actionPerformed(ActionEvent event) {
            nomeJogo1.setEnabled(false);
-           pontosLabel1.setText(nomeJogo1.getText()+" - Pontos: ");
+    
+           pontosLabel1.setText(nomeJogo1.getText()+" - Pontos: " + pontosPlayer1);
         }
 
         public void ActionPlayer2(ActionEvent event){
             nomeJogo2.setEnabled(false);
-             pontosLabel2.setText(nomeJogo2.getText()+ " - Pontos: ");
+                
+             pontosLabel2.setText(nomeJogo2.getText()+ " - Pontos: " + pontosPlayer2);
         }
 
     }
