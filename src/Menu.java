@@ -3,14 +3,14 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class Menu extends JFrame{
-	JMenu func;
+	JMenu archivMenu;
 	JMenu calculadora;
 	JMenu sobre;
 	JMenu games;
-	JMenu concCarros;
+	JMenu concessionariaApp;
 	JMenuItem sair;
-	JMenuItem ticTacToe;
-	JMenuItem calc;
+	JMenuItem gameApp;
+	JMenuItem calculatorApp;
 	JMenuItem cdCars;
 	JMenuItem sobreCaio;
 	JMenuItem sobreDiego;
@@ -31,27 +31,27 @@ public class Menu extends JFrame{
 		
 
 		
-		 func = new JMenu("Arquivo");
+		 archivMenu = new JMenu("Arquivo");
 		 calculadora = new JMenu("Calculadora");
 		 games = new JMenu("Jogos");
-		 concCarros = new JMenu("Concessionaria");
+		 concessionariaApp = new JMenu("Concessionaria");
 		  sobre = new JMenu("Sobre");
 		
 		 sair = new JMenuItem("Sair");
-		 calc = new JMenuItem("Calculadora");
+		 calculatorApp = new JMenuItem("Calculadora");
 		 cdCars = new JMenuItem("Concessionária");
-		 ticTacToe = new JMenuItem("Jogo da Velha");
+		 gameApp = new JMenuItem("Jogo da Velha");
 		sobreCaio = new JMenuItem("Sobre o Caio");
 		 sobreDiego = new JMenuItem("Sobre o Diego");
 		 
 		
-		func.add(sair);
+		archivMenu.add(sair);
 		
-		calculadora.add(calc);
+		calculadora.add(concessionariaApp);
 	
-		concCarros.add(cdCars);
+		concessionariaApp.add(cdCars);
 
-		games.add(ticTacToe);
+		games.add(gameApp);
 
 		sobre.add(sobreCaio);
 		sobre.add(sobreDiego);
@@ -59,10 +59,10 @@ public class Menu extends JFrame{
 
 		 navBar = new JMenuBar();
 		this.setJMenuBar(navBar);
-		navBar.add(func);
+		navBar.add(archivMenu);
 		navBar.add(calculadora);
 		navBar.add(games);
-		navBar.add(concCarros);
+		navBar.add(concessionariaApp);
 		navBar.add(sobre);
 
 		
@@ -95,7 +95,7 @@ public class Menu extends JFrame{
 		subtitle.setForeground(Color.WHITE);	
 		this.add(subtitle);
 
-		calc.addActionListener(new ActionListener() {
+		calculatorApp.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -158,14 +158,14 @@ public class Menu extends JFrame{
 			
 		});
 		
-		ticTacToe.addActionListener(new ActionListener() {
+		gameApp.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent events) {
 				if(tictactoeDialog == null){
 					JogoVelha tictactoeDialog = new JogoVelha(Menu.this);
 				}
-				ticTacToe.setVisible(true);
+				gameApp.setVisible(true);
 				
 				
 			}

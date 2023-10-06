@@ -5,24 +5,24 @@ import java.awt.event.*;
 public  class Concessionaria extends JDialog  {
 	
 	
-private JLabel title;
-private JLabel nome;
-private JLabel celular;
-private JLabel email;
+private JLabel titleApp;
+private JLabel nameClientApp;
+private JLabel phoneClientApp;
+private JLabel emailClientApp;
 private JLabel marca;
 private JLabel modelo;
 private JTextField txNome;
 private JTextField txCelular;
 private JTextField txEmail;
-private JComboBox cbModelo;
-private JComboBox cbMarca;
+private JComboBox comboBoxModelo;
+private JComboBox comboBoxMarca;
 private JRadioButton rbBranco;
 private JRadioButton rbVermelho;
 private JRadioButton rbPreto;
-private JCheckBox Arcondicionado;
+private JCheckBox arcondicionado; 
 private JCheckBox Hidraulica;
 private JCheckBox rodasLeve;
-private JCheckBox Multimidaia;
+private JCheckBox multimidiaCar;
 private JButton salvar;
 private JButton cancelar;
 private JLabel imageLabel;
@@ -48,17 +48,17 @@ private ImageIcon imagemCarro;
             add(imgLogo);
 		          
 
-			title = new JLabel("Concessionária CD AutoCars");
-			title.setBounds(245,-65,400,300);
-			title.setFont(new Font("Poppins",Font.BOLD,25));
-			title.setForeground(Color.BLACK);
-			add(title);
+			titleApp = new JLabel("Concessionária CD AutoCars");
+			titleApp.setBounds(245,-65,400,300);
+			titleApp.setFont(new Font("Poppins",Font.BOLD,25));
+			titleApp.setForeground(Color.BLACK);
+			add(titleApp);
 			
-			nome = new JLabel("Nome:");
-			nome.setBounds(10,160,90,50);
-			nome.setFont(new Font("Poppins",Font.PLAIN,18));
-			nome.setForeground(Color.BLACK);
-			add(nome);
+			nameClientApp = new JLabel("Nome:");
+			nameClientApp.setBounds(10,160,90,50);
+			nameClientApp.setFont(new Font("Poppins",Font.PLAIN,18));
+			nameClientApp.setForeground(Color.BLACK);
+			add(nameClientApp);
 			
 			txNome = new JTextField();
 			txNome.setBounds(70,170,170,30);
@@ -66,11 +66,11 @@ private ImageIcon imagemCarro;
 			add(txNome);
 			
 			
-			celular = new JLabel("Celular:");
-			celular.setBounds(250,160,90,50);
-			celular.setFont(new Font("Poppins",Font.PLAIN,18));
-			celular.setForeground(Color.BLACK);
-			add(celular);
+			phoneClientApp = new JLabel("Celular:");
+			phoneClientApp.setBounds(250,160,90,50);
+			phoneClientApp.setFont(new Font("Poppins",Font.PLAIN,18));
+			phoneClientApp.setForeground(Color.BLACK);
+			add(phoneClientApp);
 			
 			txCelular = new JTextField();
 			txCelular.setBounds(320,170,170,30);
@@ -97,11 +97,11 @@ private ImageIcon imagemCarro;
 			add(txCelular);
 			
 
-			email = new JLabel("Email:");
-			email.setBounds(500,160,90,50);
-			email.setFont(new Font("Poppins",Font.PLAIN,18));
-			email.setForeground(Color.BLACK);
-			add(email);
+			emailClientApp = new JLabel("Email:");
+			emailClientApp.setBounds(500,160,90,50);
+			emailClientApp.setFont(new Font("Poppins",Font.PLAIN,18));
+			emailClientApp.setForeground(Color.BLACK);
+			add(emailClientApp);
 			
 			txEmail = new JTextField();
 			txEmail.setBounds(555,170,170,30);
@@ -134,10 +134,10 @@ private ImageIcon imagemCarro;
 			marca.setForeground(Color.BLACK);
 			add(marca);
 			
-			cbMarca = new JComboBox<>(new String[]{"Marca","Tesla", "Toyota"});
-			cbMarca.setBounds(80,243,100,25);
-			add(cbMarca);
-			cbMarca.addItemListener(new ItemListener() {
+			comboBoxMarca = new JComboBox<>(new String[]{"Marca","Tesla", "Toyota"});
+			comboBoxMarca.setBounds(80,243,100,25);
+			add(comboBoxMarca);
+			comboBoxMarca.addItemListener(new ItemListener() {
 			    @Override
 			    public void itemStateChanged(ItemEvent e) {
 			        alimentoCombo(); // Atualize a combo de modelos
@@ -155,10 +155,10 @@ private ImageIcon imagemCarro;
 			add(modelo);
 			
 			
-			cbModelo = new JComboBox<>(new String[]{"Modelo"});
-			cbModelo.setBounds(87,313,100,25);
-			add(cbModelo);
-			cbModelo.addItemListener(new ItemListener() {
+			comboBoxModelo = new JComboBox<>(new String[]{"Modelo"});
+			comboBoxModelo.setBounds(87,313,100,25);
+			add(comboBoxModelo);
+			comboBoxModelo.addItemListener(new ItemListener() {
 			    @Override
 			    public void itemStateChanged(ItemEvent e) {
 			        mostrarIcone(); // Atualize a imagem com base no novo modelo selecionado
@@ -214,9 +214,9 @@ private ImageIcon imagemCarro;
 		        opcionais.setForeground(Color.BLACK);
 		        add(opcionais);
 		        
-		        Arcondicionado = new JCheckBox("Ar Condicionado");
-		        Arcondicionado.setBounds(10, 470, 180, 30);
-		        add(Arcondicionado);
+		        arcondicionado = new JCheckBox("Ar Condicionado");
+		        arcondicionado.setBounds(10, 470, 180, 30);
+		        add(arcondicionado);
 
 		        Hidraulica = new JCheckBox("Direção Hidráulica");
 		        Hidraulica.setBounds(10, 500, 180, 30);
@@ -226,9 +226,9 @@ private ImageIcon imagemCarro;
 		        rodasLeve.setBounds(10, 530, 180, 30);
 		        add(rodasLeve);
 
-		        Multimidaia = new JCheckBox("Multimídia");
-		        Multimidaia.setBounds(10, 560, 180, 30);
-		        add(Multimidaia);
+		        multimidiaCar = new JCheckBox("Multimídia");
+		        multimidiaCar.setBounds(10, 560, 180, 30);
+		        add(multimidiaCar);
 			
 			   JPanel botoesPanel = new JPanel();
 		        botoesPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
@@ -243,13 +243,13 @@ private ImageIcon imagemCarro;
 					public void actionPerformed(ActionEvent e) {
 					
 						String coresSelected = rbBranco.isSelected() ? "branco" : rbVermelho.isSelected() ? "vermelho" : "preto";
-						String marcaSelected = (String) cbMarca.getSelectedItem();
-						String modeloSelected = (String) cbModelo.getSelectedItem();
+						String marcaSelected = (String) comboBoxMarca.getSelectedItem();
+						String modeloSelected = (String) comboBoxModelo.getSelectedItem();
 						String celular = (txCelular.getText());
-						  boolean arSelected = Arcondicionado.isSelected();
+						  boolean arSelected = arcondicionado.isSelected();
 						  boolean hidrauSelected = Hidraulica.isSelected();
 						  boolean rodasSelected = rodasLeve.isSelected();
-						  boolean multiSelected = Multimidaia.isSelected();
+						  boolean multiSelected = multimidiaCar.isSelected();
 						 
 						  
 						//  criando uma variavel  mensagem para mostrar no JOptionPane
@@ -299,14 +299,14 @@ private ImageIcon imagemCarro;
 		                txNome.setText("");
 		                txCelular.setText("");
 		                txEmail.setText("");
-		                cbMarca.setSelectedIndex(0);
+		                comboBoxMarca.setSelectedIndex(0);
 		                rbBranco.setSelected(false);
 		                rbVermelho.setSelected(false);
 		                rbPreto.setSelected(false);
-		                Arcondicionado.setSelected(false);
+		                arcondicionado.setSelected(false);
 		                Hidraulica.setSelected(false);
 		                rodasLeve.setSelected(false);
-		                Multimidaia.setSelected(false);
+		                multimidiaCar.setSelected(false);
 
 		                // Limpar o JLabel da imagem
 		                imageLabel.setIcon(null);
@@ -334,27 +334,27 @@ private ImageIcon imagemCarro;
 			}
 		
 		private void alimentoCombo() {
-			String alimentoSelected = (String) cbMarca.getSelectedItem();
+			String alimentoSelected = (String) comboBoxMarca.getSelectedItem();
 			//remove os itens q foram adicionados
-			cbModelo.removeAllItems();
+			comboBoxMarca.removeAllItems();
 			
 			if("Tesla".equals(alimentoSelected)) {
 				//Adiconado novos elementos na comboBox modelo
-				cbModelo.addItem("Modelo");
-				cbModelo.addItem("Tesla-S");
-				cbModelo.addItem("Tesla-X");
+				comboBoxModelo.addItem("Modelo");
+				comboBoxModelo.addItem("Tesla-S");
+				comboBoxModelo.addItem("Tesla-X");
 			}else if("Toyota".equals(alimentoSelected)) {
-				cbModelo.addItem("Modelo");
-				cbModelo.addItem("corollaSport");
-				cbModelo.addItem("corollaGLi");
+				comboBoxModelo.addItem("Modelo");
+				comboBoxModelo.addItem("corollaSport");
+				comboBoxModelo.addItem("corollaGLi");
 			}
 		}
 		
 		private void mostrarIcone() {
 			// verificando qual item esta selecionado, e colocando duas condições (verdadeira e falsa)
 			   String coresSelected = rbBranco.isSelected() ? "branco" :  rbVermelho.isSelected() ? "vermelho" : "preto";
-		        String marcaSelected = (String) cbMarca.getSelectedItem();
-		        String modeloSelected = (String) cbModelo.getSelectedItem();
+		        String marcaSelected = (String) comboBoxMarca.getSelectedItem();
+		        String modeloSelected = (String) comboBoxModelo.getSelectedItem();
 		     
 		       
 		        int larguraImg = 530;  // Defina a largura da imagem corretamente

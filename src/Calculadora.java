@@ -11,10 +11,10 @@ import java.awt.image.BufferedImage;
 
 public  class Calculadora extends JDialog implements ActionListener{
 	
-	JTextField num1;
-	JTextField num2;
-	JLabel title;
-	Image img;
+	JTextField firstNumber;
+	JTextField secondNumber;
+	JLabel titleCalculator;
+	Image backgroundCalculatorApp;
 	ImageIcon calculatorImage;
 	JLabel iconCalculator;
 
@@ -87,21 +87,21 @@ public  class Calculadora extends JDialog implements ActionListener{
 			
 			
 			
-			num2 = new JTextField();
-			num2.setBounds(420,300,170,30);
-			num2.setFont(new Font("Poppins",Font.PLAIN,18));
-			num2.setBackground(Color.white);  
-			num2.setForeground(Color.BLACK);
-			add(num2);
+			secondNumber = new JTextField();
+			secondNumber.setBounds(420,300,170,30);
+			secondNumber.setFont(new Font("Poppins",Font.PLAIN,18));
+			secondNumber.setBackground(Color.white);  
+			secondNumber.setForeground(Color.BLACK);
+			add(secondNumber);
 			
 			
 			
-			num1 = new JTextField();
-			num1.setBounds(100,300,170,30);
-			num1.setFont(new Font("Poppins",Font.PLAIN,18));
-			num1.setBackground(Color.white);
-			num1.setForeground(Color.BLACK);
-			add(num1);
+			firstNumber = new JTextField();
+			firstNumber.setBounds(100,300,170,30);
+			firstNumber.setFont(new Font("Poppins",Font.PLAIN,18));
+			firstNumber.setBackground(Color.white);
+			firstNumber.setForeground(Color.BLACK);
+			add(firstNumber);
 			
 			
 			
@@ -120,14 +120,14 @@ public  class Calculadora extends JDialog implements ActionListener{
 			
 			add(label2);
 			
-			title = new JLabel("Calculadora Basica");
-			title.setBounds(200,20,400,300);
-			title.setFont(new Font("Poppins ExtraBold",Font.BOLD,26));
-			title.setForeground(Color.WHITE);
-			add(title);
+			titleCalculator = new JLabel("Calculadora Basica");
+			titleCalculator.setBounds(200,20,400,300);
+			titleCalculator.setFont(new Font("Poppins ExtraBold",Font.BOLD,26));
+			titleCalculator.setForeground(Color.WHITE);
+			add(titleCalculator);
 			
 		
-				background.add(title);
+				background.add(titleCalculator);
 				background.add(subtracao);
 				background.add(soma);
 				background.add(label2);
@@ -146,9 +146,9 @@ public  class Calculadora extends JDialog implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			
-			Double numero1 = Double.parseDouble(num1.getText());
-			Double numero2 = Double.parseDouble(num2.getText());
-			Double soma = numero1 + numero2;
+			Double numberOne = Double.parseDouble(firstNumber.getText());
+			Double numberTwo = Double.parseDouble(secondNumber.getText());
+			Double soma = numberOne + numberTwo;
 
 
 			JOptionPane.showMessageDialog(null,"A soma �: " + soma);
@@ -159,9 +159,9 @@ public  class Calculadora extends JDialog implements ActionListener{
 		
 		public void subtracao(ActionEvent ActionEvent) {
 
-			Double numero1 = Double.parseDouble(num1.getText());
-			Double numero2 = Double.parseDouble(num2.getText());
-			Double subtracao = numero1 - numero2;
+			Double numberOne = Double.parseDouble(firstNumber.getText());
+			Double numberTwo = Double.parseDouble(secondNumber.getText());
+			Double subtracao = numberOne - numberTwo;
 			
 			
 			
@@ -172,9 +172,9 @@ public  class Calculadora extends JDialog implements ActionListener{
 		
 		public void multiplicacao(ActionEvent ActionEvent){
 			
-			Double numero1 = Double.parseDouble(num1.getText());
-			Double numero2 = Double.parseDouble(num2.getText());
-			Double multiplicacao = numero1 * numero2;
+			Double numberOne = Double.parseDouble(firstNumber.getText());
+			Double numberTwo = Double.parseDouble(secondNumber.getText());
+			Double multiplicacao = numberOne * numberTwo;
 			
 			
 			JOptionPane.showMessageDialog(null,"O produto �: " + multiplicacao);
@@ -184,13 +184,13 @@ public  class Calculadora extends JDialog implements ActionListener{
 		
 		public void divisao(ActionEvent ActionEvent) {
 		
-			Double numero1 = Double.parseDouble(num1.getText());
-			Double numero2 = Double.parseDouble(num2.getText());
-			Double divisao = numero1 / numero2;
+			Double numberOne = Double.parseDouble(firstNumber.getText());
+			Double numberTwo = Double.parseDouble(secondNumber.getText());
+			Double divisao = numberOne / numberTwo;
 			
 			
 		
-			if(numero2 == 0) {
+			if(numberTwo == 0) {
 				JOptionPane.showMessageDialog(null,"� impossivel dividir por 0","aten��o",JOptionPane.ERROR_MESSAGE);
 			}else {
 				JOptionPane.showMessageDialog(null,"O quoeficiente �: " + divisao);

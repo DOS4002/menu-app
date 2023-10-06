@@ -1,4 +1,4 @@
-    import java.awt.Color;
+        import java.awt.Color;
     import java.awt.Font;
     import java.awt.Image;
     import javax.swing.*;
@@ -76,10 +76,10 @@
             jogador2.add(namePlayerO);
 
 
-            inputPlayerX = new JTextField();
-            inputPlayerX.setBounds(200, 20, 170, 30);
-            inputPlayerX.setFont(new Font("Poppins", Font.PLAIN, 18));
-            jogador2.add(inputPlayerX);
+            inputPlayerO = new JTextField();
+            inputPlayerO.setBounds(200, 20, 170, 30);
+            inputPlayerO.setFont(new Font("Poppins", Font.PLAIN, 18));
+            jogador2.add(inputPlayerO);
 
             JButton buttonPlayer2 = new JButton("Pronto");
             buttonPlayer2.setBackground(new Color(255, 255, 255));
@@ -92,6 +92,7 @@
 
             gameRun = new JPanel();
             gameRun.setLayout(null);
+
 
             titleGame = new JLabel("JOGO DA VELHA");
             titleGame.setBounds(510, 90, 200, 50);    
@@ -296,7 +297,7 @@
 
         private void atualizarPontuacao() {
             scoreLabelX.setText(inputPlayerX.getText()+" - Pontos: " + scorePlayerX);
-            scoreLabelO.setText(inputPlayerO.getText()+ " - Pontos: " + scorePlayerO);
+            scoreLabelO.setText(inputPlayerO.getText()+" - Pontos: " + scorePlayerO);
             
         }
 
@@ -305,14 +306,25 @@
            inputPlayerX.setEnabled(false);
     
            scoreLabelX.setText(inputPlayerX.getText()+" - Pontos: " + scorePlayerX);
+           if(inputPlayerX.getText().isEmpty()){
+               JOptionPane.showMessageDialog(null, "Digite o nome do jogador X", "Erro", JOptionPane.ERROR_MESSAGE);
+           }
         }
 
         public void ActionPlayer2(ActionEvent event){
             inputPlayerO.setEnabled(false);
                 
              scoreLabelO.setText(inputPlayerO.getText()+ " - Pontos: " + scorePlayerO);
-             tabbedPane.addTab("Jogar", null, gameRun, "Se prepare para jogar!");
+                if(inputPlayerO.getText().isEmpty()){
+                    JOptionPane.showMessageDialog(null, "Digite o nome do jogador O", "Erro", JOptionPane.ERROR_MESSAGE);
+                }
 
+        }
+
+        public void ActionAddTabbedPane(ActionEvent event){
+            if(inputPlayerX.getText().isBlank() == false && inputPlayerO.getText().isBlank() == false){
+                 tabbedPane.addTab("Jogar", null, gameRun, "Se prepare para jogar!");
+            }
         }
 
     }
