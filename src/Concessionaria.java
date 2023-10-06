@@ -62,7 +62,7 @@ private ImageIcon imagemCarro;
 			
 			txNome = new JTextField();
 			txNome.setBounds(70,170,170,30);
-			txNome.setFont(new Font("Poppins",Font.PLAIN,10));
+			txNome.setFont(new Font("Poppins",Font.PLAIN,15));
 			add(txNome);
 			
 			
@@ -74,7 +74,7 @@ private ImageIcon imagemCarro;
 			
 			txCelular = new JTextField();
 			txCelular.setBounds(320,170,170,30);
-			txCelular.setFont(new Font("Poppins",Font.PLAIN,18));
+			txCelular.setFont(new Font("Poppins",Font.PLAIN,15));
 			txCelular.addKeyListener(new KeyListener() {
 			    @Override
 			    public void keyTyped(KeyEvent e) {
@@ -105,7 +105,7 @@ private ImageIcon imagemCarro;
 			
 			txEmail = new JTextField();
 			txEmail.setBounds(555,170,170,30);
-			txEmail.setFont(new Font("Poppins",Font.PLAIN,18));
+			txEmail.setFont(new Font("Poppins",Font.PLAIN,15));
 			// Adicione o KeyListener para validar o campo de email
 			txEmail.addKeyListener(new KeyListener() {
 			    @Override

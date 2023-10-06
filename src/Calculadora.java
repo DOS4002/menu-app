@@ -15,6 +15,8 @@ public  class Calculadora extends JDialog implements ActionListener{
 	JTextField num2;
 	JLabel title;
 	Image img;
+	ImageIcon calculatorImage;
+	JLabel iconCalculator;
 
 
 	
@@ -35,9 +37,18 @@ public  class Calculadora extends JDialog implements ActionListener{
 			background.setIcon(backgroundConstructor);
 			add(background);
 						  
+			iconCalculator = new JLabel();
+			iconCalculator.setBounds(295, 235, 100, 100);
+			calculatorImage = new ImageIcon("src/imgCalc/calculator.png");
+			Image editCalculator = calculatorImage.getImage().getScaledInstance(iconCalculator.getWidth(), iconCalculator.getHeight(), Image.SCALE_SMOOTH);
+			ImageIcon calculatorConstructor = new ImageIcon(editCalculator);
+			iconCalculator.setIcon(calculatorConstructor);
+			background.add(iconCalculator);
+
+
 			JButton soma = new JButton("Somar");
 			soma.setBounds(20,400,150,30);
-			soma.setFont(new Font("Poppins", Font.PLAIN,18));
+			soma.setFont(new Font("Poppins", Font.PLAIN,15));
 			soma.setForeground(Color.BLACK);
 			soma.setBackground(Color.white);
 			add(soma);
@@ -48,7 +59,7 @@ public  class Calculadora extends JDialog implements ActionListener{
 			
 			JButton subtracao= new JButton("Subtrair");
 			subtracao.setBounds(175,400,150,30);
-			subtracao.setFont(new Font("Poppins", Font.PLAIN,18));
+			subtracao.setFont(new Font("Poppins", Font.PLAIN,15));
 			subtracao.setForeground(Color.BLACK);
 			subtracao.setBackground(Color.white);
 			add(subtracao);
@@ -58,7 +69,7 @@ public  class Calculadora extends JDialog implements ActionListener{
 			
 			JButton multiplicacao = new JButton("Multiplicar");
 			multiplicacao.setBounds(333,400,150,30);
-			multiplicacao.setFont(new Font("Poppins", Font.PLAIN,18));
+			multiplicacao.setFont(new Font("Poppins", Font.PLAIN,15));
 			multiplicacao.setForeground(Color.BLACK);
 			multiplicacao.setBackground(Color.white);
 			add(multiplicacao);
@@ -68,13 +79,11 @@ public  class Calculadora extends JDialog implements ActionListener{
 			
 			JButton divisao = new JButton("Dividir");
 			divisao.setBounds(490,400,150,30);
-			divisao.setFont(new Font("Poppins", Font.PLAIN,18));
+			divisao.setFont(new Font("Poppins", Font.PLAIN,15));
 			divisao.setForeground(Color.BLACK);
 			divisao.setBackground(Color.white);
 			add(divisao);
 			divisao.addActionListener(this::divisao);
-			
-	
 			
 			
 			
@@ -98,7 +107,7 @@ public  class Calculadora extends JDialog implements ActionListener{
 			
 			JLabel label1 = new JLabel("Numero 1");
 			label1.setBounds(100,260,90,50);
-			label1.setFont(new Font("Arial",Font.PLAIN,15));
+			label1.setFont(new Font("Poppins",Font.PLAIN,15));
 			label1.setForeground(Color.WHITE);
 			add(label1);
 			
@@ -112,8 +121,8 @@ public  class Calculadora extends JDialog implements ActionListener{
 			add(label2);
 			
 			title = new JLabel("Calculadora Basica");
-			title.setBounds(215,20,400,300);
-			title.setFont(new Font("Poppins",Font.BOLD,26));
+			title.setBounds(200,20,400,300);
+			title.setFont(new Font("Poppins ExtraBold",Font.BOLD,26));
 			title.setForeground(Color.WHITE);
 			add(title);
 			

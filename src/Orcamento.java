@@ -57,7 +57,7 @@ private ImageIcon imagemCarro;
 
 	
 		public Orcamento(){	
-			this.setTitle("Concessionária");
+			this.setTitle("Concessionï¿½ria");
 			this.setSize(800, 700);	
 			this.setResizable(false);
 		
@@ -84,14 +84,14 @@ private ImageIcon imagemCarro;
 		        
 		        
 		        arq = new JMenu("Arquivo");
-		        opc = new JMenu("Opções");
-		        orc = new JMenu("Orçamento");
+		        opc = new JMenu("Opï¿½ï¿½es");
+		        orc = new JMenu("Orï¿½amento");
 		        cadastro = new JMenu("Cadastrar");
 		        lojas = new JMenu("Lojas");
 		        ajuda = new JMenu("Ajuda");
 			
 		       
-		        viOrc = new JMenuItem("Vizualisar Orçamento");
+		        viOrc = new JMenuItem("Vizualisar Orï¿½amento");
 		        viOrc.addActionListener(new ActionListener() {
 					@Override
 					public void actionPerformed(ActionEvent e) {
@@ -119,7 +119,7 @@ private ImageIcon imagemCarro;
 						      valor += valorAr;
 						  }
 						  if (Hidraulica.isSelected()) {
-						      opcionais += "Direção Hidráulica " + "R$" + valorDire + "<br>";
+						      opcionais += "Direï¿½ï¿½o Hidrï¿½ulica " + "R$" + valorDire + "<br>";
 						      valor += valorDire;
 						  }
 						  if (rodasLeve.isSelected()) {
@@ -127,7 +127,7 @@ private ImageIcon imagemCarro;
 						      valor += valorRodas;
 						  }
 						  if (Multimidaia.isSelected()) {
-						      opcionais += "Multimídia " + "R$" + valorMulti + "<br>";
+						      opcionais += "Multimï¿½dia " + "R$" + valorMulti + "<br>";
 						      valor += valorMulti;
 						  }
 						  opcionais += "</html>";
@@ -151,7 +151,7 @@ private ImageIcon imagemCarro;
 				        }
 				 
 				        
-				        // Crie uma instância de visuOrcamento e passe os dados
+				        // Crie uma instï¿½ncia de visuOrcamento e passe os dados
 				        visuOrcamento visuOrcamentoDialog = new visuOrcamento( marca, modelo, opcionais, valorAr, valorDire, valorRodas, valorMulti, valorTeslaS, valorTeslaX, valorCorollaSpo, valor, imagemCarro);
 				        // Defina a imagem no visuOrcamento
 				        visuOrcamentoDialog.definirImagem(imagemCarro);
@@ -191,7 +191,7 @@ private ImageIcon imagemCarro;
 					public void actionPerformed(ActionEvent e) {
 						
 
-					int sair =	JOptionPane.showConfirmDialog(null,"Você quer sair da concessionária ?","Atenção", JOptionPane.YES_NO_OPTION);
+					int sair =	JOptionPane.showConfirmDialog(null,"Vocï¿½ quer sair da concessionï¿½ria ?","Atenï¿½ï¿½o", JOptionPane.YES_NO_OPTION);
 							if(sair == JOptionPane.YES_OPTION){
 								System.exit(0);
 						}
@@ -205,7 +205,7 @@ private ImageIcon imagemCarro;
 					@Override
 					public void actionPerformed(ActionEvent e) {
 						
-						 JOptionPane.showMessageDialog(null,"Informações copiadas com sucesso!!","Atenção", JOptionPane.WARNING_MESSAGE);
+						 JOptionPane.showMessageDialog(null,"Informaï¿½ï¿½es copiadas com sucesso!!","Atenï¿½ï¿½o", JOptionPane.WARNING_MESSAGE);
 						
 					}
 		        	
@@ -215,7 +215,7 @@ private ImageIcon imagemCarro;
 		    
 		        
 		        
-		        saoPaulo = new JMenuItem("São Paulo");
+		        saoPaulo = new JMenuItem("Sï¿½o Paulo");
 		        saoPaulo.addActionListener(new ActionListener() {
 
 					@Override
@@ -228,7 +228,7 @@ private ImageIcon imagemCarro;
 								"------------------------------\n"+
 								"Suzano: Casa Branca - 120.\n"+
 								"------------------------------\n"+
-								"Butantã: Vila Indiana - 890."
+								"Butantï¿½: Vila Indiana - 890."
 								);
 						
 					}
@@ -246,9 +246,9 @@ private ImageIcon imagemCarro;
 								"------------------------------\n"+
 								"Guapimirim: Barreira - 469.\n"+
 								"------------------------------\n"+
-								"Nilópolis: Manoel Reis - 323.\n"+
+								"Nilï¿½polis: Manoel Reis - 323.\n"+
 								"------------------------------\n"+
-								"Niterói: São Francisco  - 880."
+								"Niterï¿½i: Sï¿½o Francisco  - 880."
 								);
 						
 					}
@@ -263,13 +263,13 @@ private ImageIcon imagemCarro;
 					public void actionPerformed(ActionEvent e) {
 						
 						JOptionPane.showMessageDialog(null,"A CD autoCars tambem esta em:\n"+
-								"Joinville: América - 122.\n"+
+								"Joinville: Amï¿½rica - 122.\n"+
 								"------------------------------\n"+
-								"Florianópolis: Itacorubi - 360.\n"+
+								"Florianï¿½polis: Itacorubi - 360.\n"+
 								"------------------------------\n"+
-								"Blumenau: Fidélis - 523.\n"+
+								"Blumenau: Fidï¿½lis - 523.\n"+
 								"------------------------------\n"+
-								"São José: Barreiros  - 985."
+								"Sï¿½o Josï¿½: Barreiros  - 985."
 								);
 						
 					}
@@ -284,7 +284,7 @@ private ImageIcon imagemCarro;
 					public void actionPerformed(ActionEvent e) {
 						
 
-					int criar =	JOptionPane.showConfirmDialog(null,"Quer criar novas informções?","Criar", JOptionPane.YES_NO_OPTION);
+					int criar =	JOptionPane.showConfirmDialog(null,"Quer criar novas informï¿½ï¿½es?","Criar", JOptionPane.YES_NO_OPTION);
 						if(criar == JOptionPane.YES_OPTION) {
 							 txNome.setText("");
 				                txCelular.setText("");
@@ -337,7 +337,7 @@ private ImageIcon imagemCarro;
 		       opc.add(copy);
 	
 		       principal.add(orc);
-		       //Orçamento
+		       //Orï¿½amento
 		       orc.add(viOrc);
 		       
 		       
@@ -358,9 +358,9 @@ private ImageIcon imagemCarro;
 		       ajuda.add(faleNos);
 		       
 		
-			title = new JLabel("Concessionária CD AutoCars");
+			title = new JLabel("Concessionï¿½ria CD AutoCars");
 			title.setBounds(215,-70,400,300);
-			title.setFont(new Font("Poppins",Font.PLAIN,30));
+			title.setFont(new Font("Poppins ExtraBold",Font.PLAIN,30));
 			title.setForeground(Color.BLACK);
 			add(title);
 			
@@ -390,9 +390,9 @@ private ImageIcon imagemCarro;
 			    public void keyTyped(KeyEvent e) {
 			    	//aceitando apenas determinados caracteres.
 			        char c = e.getKeyChar();
-			        // Só pode colocar numeros dentro do JTextField ou seja se for um caracter que não seja um numero, ele sera ignorado
+			        // Sï¿½ pode colocar numeros dentro do JTextField ou seja se for um caracter que nï¿½o seja um numero, ele sera ignorado
 			        if (!Character.isDigit(c)  && c != '-' && c != '(' && c != ')' && c != KeyEvent.VK_BACK_SPACE) {
-			            e.consume(); // Ignora caracteres que não são numeros ou " - "
+			            e.consume(); // Ignora caracteres que nï¿½o sï¿½o numeros ou " - "
 			        }
 			    }
 
@@ -424,7 +424,7 @@ private ImageIcon imagemCarro;
 			        char c = e.getKeyChar();
 			        // convertendo para poder colocar numero . ou @
 			        if (!Character.isLetterOrDigit(c) &&   c != '.' && c != '@') {
-			            e.consume(); // Ignora caracteres que não são '.', '@' ou alfanuméricos
+			            e.consume(); // Ignora caracteres que nï¿½o sï¿½o '.', '@' ou alfanumï¿½ricos
 			        }
 			    }
 
@@ -530,7 +530,7 @@ private ImageIcon imagemCarro;
 		        Arcondicionado.setBounds(10, 470, 180, 30);
 		        add(Arcondicionado);
 
-		        Hidraulica = new JCheckBox("Direção Hidráulica");
+		        Hidraulica = new JCheckBox("Direï¿½ï¿½o Hidrï¿½ulica");
 		        Hidraulica.setBounds(10, 500, 180, 30);
 		        add(Hidraulica);
 
@@ -538,7 +538,7 @@ private ImageIcon imagemCarro;
 		        rodasLeve.setBounds(10, 530, 180, 30);
 		        add(rodasLeve);
 
-		        Multimidaia = new JCheckBox("Multimídia");
+		        Multimidaia = new JCheckBox("Multimï¿½dia");
 		        Multimidaia.setBounds(10, 560, 180, 30);
 		        add(Multimidaia);
 			
@@ -563,7 +563,7 @@ private ImageIcon imagemCarro;
 						 
 						  
 						//  criando uma variavel  mensagem para mostrar no JOptionPane
-						String mensagem = "Informações salvas:\n" +
+						String mensagem = "Informaï¿½ï¿½es salvas:\n" +
 						                  "Nome: " + txNome.getText() + "\n" +
 						                  "Celular: " + celular + "\n" +
 						                  "Email: " + txEmail.getText() + "\n" +
@@ -578,13 +578,13 @@ private ImageIcon imagemCarro;
 						   
 						}
 						if (hidrauSelected) {
-						    mensagem += " Direção Hidráulica " /*+ valorDire + " R$\n"*/;
+						    mensagem += " Direï¿½ï¿½o Hidrï¿½ulica " /*+ valorDire + " R$\n"*/;
 						}
 						if (rodasSelected) {
 						    mensagem += " Rodas Leve " /*+ valorRodas + " R$\n"*/;
 						}
 						if (multiSelected) {
-						    mensagem += " Multimídia-" /*+ valorMulti + " R$\n"*/;
+						    mensagem += " Multimï¿½dia-" /*+ valorMulti + " R$\n"*/;
 						}
 
 
@@ -600,10 +600,10 @@ private ImageIcon imagemCarro;
 		        cancelar.addActionListener(new ActionListener() {
 		            @Override
 		            public void actionPerformed(ActionEvent e) {
-		            	int cancel = JOptionPane.showConfirmDialog(null,"Quer mesmo cancelar as informações ?","Opnião", JOptionPane.YES_NO_OPTION);
+		            	int cancel = JOptionPane.showConfirmDialog(null,"Quer mesmo cancelar as informaï¿½ï¿½es ?","Opniï¿½o", JOptionPane.YES_NO_OPTION);
 		        		if(cancel == JOptionPane.YES_OPTION) {
 		            	
-		                // Limpar todos os campos e seleções
+		                // Limpar todos os campos e seleï¿½ï¿½es
 		                txNome.setText("");
 		                txCelular.setText("");
 		                txEmail.setText("");
@@ -618,7 +618,7 @@ private ImageIcon imagemCarro;
 
 		                // Limpar o JLabel da imagem
 		                imageLabel.setIcon(null);
-		                JOptionPane.showMessageDialog(null,"Itens cancelados com sucesso!!", "Remoção",JOptionPane.WARNING_MESSAGE);
+		                JOptionPane.showMessageDialog(null,"Itens cancelados com sucesso!!", "Remoï¿½ï¿½o",JOptionPane.WARNING_MESSAGE);
 		            }
 		           }
 		        });
@@ -678,7 +678,7 @@ private ImageIcon imagemCarro;
 		}
 		
 		private void mostrarIcone() {
-			// verificando qual item esta selecionado, e colocando duas condições (verdadeira e falsa)
+			// verificando qual item esta selecionado, e colocando duas condiï¿½ï¿½es (verdadeira e falsa)
 			   String coresSelected = rbBranco.isSelected() ? "branco" :  rbVermelho.isSelected() ? "vermelho" : "preto";
 		        String marcaSelected = (String) cbMarca.getSelectedItem();
 		        String modeloSelected = (String) cbModelo.getSelectedItem();
@@ -711,12 +711,12 @@ private ImageIcon imagemCarro;
 		            }
 		        }
 
-		        // Redimensionar a imagem para um tamanho específico 
+		        // Redimensionar a imagem para um tamanho especï¿½fico 
 		      
 		        ImageIcon icone = redimensionarCarro(imagePath, larguraImg, alturaImg);
 		        imageLabel.setIcon(icone);
 
-		        // Atribuir a imagem redimensionada à variável imagemCarro
+		        // Atribuir a imagem redimensionada ï¿½ variï¿½vel imagemCarro
 		        imagemCarro = redimensionarCarro(imagePath, larguraImg, alturaImg);
 		        
 		        // Configurar as coordenadas para posicionar a imagem
@@ -726,7 +726,7 @@ private ImageIcon imagemCarro;
 		        
 		    }
 
-		    // Função para redimensionar uma imagem para a largura e altura desejadas
+		    // Funï¿½ï¿½o para redimensionar uma imagem para a largura e altura desejadas
 		    private ImageIcon redimensionarCarro(String imagePath, int largura, int altura) {
 		        ImageIcon originalIcon = new ImageIcon(imagePath);
 		        Image imagemOriginal = originalIcon.getImage();

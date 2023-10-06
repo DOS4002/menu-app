@@ -25,6 +25,12 @@
         private JLabel pontosLabel1;
         private JLabel pontosLabel2;
         private JLabel title_tictac;
+        private JPanel gameRun;
+        private JLabel boardImage;
+        private ImageIcon gameBoard;
+        private Image editBoard;
+        private ImageIcon boardConstructor;
+        private JTabbedPane tabbedPane;
 
         public JogoVelha(Menu tictacToe) {
             this.setTitle("Jogo da Velha");
@@ -47,7 +53,7 @@
             jogador1.add(nomePlayer1);
 
             nomeJogo1 = new JTextField();
-            nomeJogo1.setBounds(220, 20, 170, 30);
+            nomeJogo1.setBounds(200, 20, 170, 30);
             nomeJogo1.setFont(new Font("Poppins", Font.PLAIN, 17));
             jogador1.add(nomeJogo1);
 
@@ -69,12 +75,9 @@
             nomePlayer2.setForeground(Color.BLACK);
             jogador2.add(nomePlayer2);
 
-            
-            
-            
 
             nomeJogo2 = new JTextField();
-            nomeJogo2.setBounds(220, 20, 170, 30);
+            nomeJogo2.setBounds(200, 20, 170, 30);
             nomeJogo2.setFont(new Font("Poppins", Font.PLAIN, 18));
             jogador2.add(nomeJogo2);
 
@@ -87,22 +90,21 @@
 
             tabbedPane.addTab("Jogador O", null, jogador2, "Digite o nome do segundo jogador:");
 
-            JPanel gameRun = new JPanel();
+            gameRun = new JPanel();
             gameRun.setLayout(null);
-            tabbedPane.addTab("Jogar", null, gameRun, "Se prepare para jogar!");
 
             title_tictac = new JLabel("JOGO DA VELHA");
             title_tictac.setBounds(510, 90, 200, 50);    
-            title_tictac.setFont(new Font("Poppins", Font.BOLD, 21));
+            title_tictac.setFont(new Font("Poppins ExtraBold", Font.PLAIN, 21));
             title_tictac.setForeground(Color.BLACK);
             gameRun.add(title_tictac);
 
 
-            JLabel boardImage = new JLabel();
+            boardImage = new JLabel();
             boardImage.setBounds(10, 90, 340, 320);
-            ImageIcon gameBoard = new ImageIcon("src/gameImg/tictac.png");
-            Image editBoard = gameBoard.getImage().getScaledInstance(boardImage.getWidth(), boardImage.getHeight(), Image.SCALE_SMOOTH);
-            ImageIcon boardConstructor = new ImageIcon(editBoard);
+            gameBoard = new ImageIcon("src/gameImg/tictac.png");
+            editBoard = gameBoard.getImage().getScaledInstance(boardImage.getWidth(), boardImage.getHeight(), Image.SCALE_SMOOTH);
+            boardConstructor = new ImageIcon(editBoard);
             boardImage.setIcon(boardConstructor);
             gameRun.add(boardImage);
 
@@ -132,13 +134,13 @@
             txtPlayer2.setFont(new Font("Poppins", Font.PLAIN, 17));
             gameRun.add(txtPlayer2);
 
-            pontosLabel1 = new JLabel(nomeJogo1.getText()+" - Pontos: " + pontosPlayer1);
+            pontosLabel1 = new JLabel("Pontos: " + pontosPlayer1);
             pontosLabel1.setForeground(Color.BLACK);
             pontosLabel1.setBounds(500, 270, 300, 80);
             pontosLabel1.setFont(new Font("Poppins", Font.PLAIN, 18));
             gameRun.add(pontosLabel1);
 
-            pontosLabel2 = new JLabel(nomeJogo2.getText()+ " - Pontos: " + pontosPlayer2);
+            pontosLabel2 = new JLabel("Pontos: " + pontosPlayer2);
             pontosLabel2.setForeground(Color.BLACK);
             pontosLabel2.setBounds(500, 310, 300, 80);
             pontosLabel2.setFont(new Font("Poppins", Font.PLAIN, 18));
@@ -309,6 +311,9 @@
             nomeJogo2.setEnabled(false);
                 
              pontosLabel2.setText(nomeJogo2.getText()+ " - Pontos: " + pontosPlayer2);
+             tabbedPane.addTab("Jogar", null, gameRun, "Se prepare para jogar!");
+
         }
 
     }
+ 
