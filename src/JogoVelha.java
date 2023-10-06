@@ -9,27 +9,27 @@
 
     public class JogoVelha extends JDialog implements ActionListener {
 
-        private boolean jogador1Vez = true;
-        private boolean jogoAcabou = false;
-        private int pontosPlayer1 = 0;
-        private int pontosPlayer2 = 0;
-        private JTextField nomeJogo1;
-        private JTextField nomeJogo2;
-        private JLabel nomePlayer1;
-        private JLabel nomePlayer2;
+        private boolean firstPlayer = true;
+        private boolean gameOver = false;
+        private int scorePlayerX = 0;
+        private int scorePlayerO = 0;
+        private JTextField inputPlayerX;
+        private JTextField inputPlayerO;
+        private JLabel namePlayerX;
+        private JLabel namePlayerO;
         private JButton newGame;
-        private JButton resetScore; // Botão para zerar o placar
-        private JButton[][] buttons;
+        private JButton resetScore;
+        private JButton[][]squareBoard;
         private JLabel txtPlayer2;
         private JLabel txtPlayer1;
-        private JLabel pontosLabel1;
-        private JLabel pontosLabel2;
-        private JLabel title_tictac;
+        private JLabel scoreLabelX;
+        private JLabel scoreLabelO;
+        private JLabel titleGame;
         private JPanel gameRun;
         private JLabel boardImage;
         private ImageIcon gameBoard;
         private Image editBoard;
-        private ImageIcon boardConstructor;
+        private ImageIcon boardConstructorImage;
         private JTabbedPane tabbedPane;
 
         public JogoVelha(Menu tictacToe) {
@@ -46,16 +46,16 @@
             JPanel jogador1 = new JPanel();
             jogador1.setLayout(null);
 
-            nomePlayer1 = new JLabel("Nome do jogador  X: ");
-            nomePlayer1.setBounds(10, 10, 200, 50);
-            nomePlayer1.setFont(new Font("Poppins", Font.PLAIN, 17));
-            nomePlayer1.setForeground(Color.BLACK);
-            jogador1.add(nomePlayer1);
+            namePlayerX = new JLabel("Nome do jogador  X: ");
+            namePlayerX.setBounds(10, 10, 200, 50);
+            namePlayerX.setFont(new Font("Poppins", Font.PLAIN, 17));
+            namePlayerX.setForeground(Color.BLACK);
+            jogador1.add(namePlayerX);
 
-            nomeJogo1 = new JTextField();
-            nomeJogo1.setBounds(200, 20, 170, 30);
-            nomeJogo1.setFont(new Font("Poppins", Font.PLAIN, 17));
-            jogador1.add(nomeJogo1);
+            inputPlayerX = new JTextField();
+            inputPlayerX.setBounds(200, 20, 170, 30);
+            inputPlayerX.setFont(new Font("Poppins", Font.PLAIN, 17));
+            jogador1.add(inputPlayerX);
 
             JButton buttonPlayer1 = new JButton("Pronto");
             buttonPlayer1.setBackground(new Color(255, 255, 255));
@@ -69,17 +69,17 @@
             JPanel jogador2 = new JPanel();
             jogador2.setLayout(null);
 
-            nomePlayer2 = new JLabel("Nome do jogador  O: ");
-            nomePlayer2.setBounds(10, 10, 200, 50);
-            nomePlayer2.setFont(new Font("Poppins", Font.PLAIN, 17));
-            nomePlayer2.setForeground(Color.BLACK);
-            jogador2.add(nomePlayer2);
+            namePlayerO = new JLabel("Nome do jogador  O: ");
+            namePlayerO.setBounds(10, 10, 200, 50);
+            namePlayerO.setFont(new Font("Poppins", Font.PLAIN, 17));
+            namePlayerO.setForeground(Color.BLACK);
+            jogador2.add(namePlayerO);
 
 
-            nomeJogo2 = new JTextField();
-            nomeJogo2.setBounds(200, 20, 170, 30);
-            nomeJogo2.setFont(new Font("Poppins", Font.PLAIN, 18));
-            jogador2.add(nomeJogo2);
+            inputPlayerX = new JTextField();
+            inputPlayerX.setBounds(200, 20, 170, 30);
+            inputPlayerX.setFont(new Font("Poppins", Font.PLAIN, 18));
+            jogador2.add(inputPlayerX);
 
             JButton buttonPlayer2 = new JButton("Pronto");
             buttonPlayer2.setBackground(new Color(255, 255, 255));
@@ -93,19 +93,19 @@
             gameRun = new JPanel();
             gameRun.setLayout(null);
 
-            title_tictac = new JLabel("JOGO DA VELHA");
-            title_tictac.setBounds(510, 90, 200, 50);    
-            title_tictac.setFont(new Font("Poppins ExtraBold", Font.PLAIN, 21));
-            title_tictac.setForeground(Color.BLACK);
-            gameRun.add(title_tictac);
+            titleGame = new JLabel("JOGO DA VELHA");
+            titleGame.setBounds(510, 90, 200, 50);    
+            titleGame.setFont(new Font("Poppins ExtraBold", Font.PLAIN, 21));
+            titleGame.setForeground(Color.BLACK);
+            gameRun.add(titleGame);
 
 
             boardImage = new JLabel();
             boardImage.setBounds(10, 90, 340, 320);
             gameBoard = new ImageIcon("src/gameImg/tictac.png");
             editBoard = gameBoard.getImage().getScaledInstance(boardImage.getWidth(), boardImage.getHeight(), Image.SCALE_SMOOTH);
-            boardConstructor = new ImageIcon(editBoard);
-            boardImage.setIcon(boardConstructor);
+            boardConstructorImage = new ImageIcon(editBoard);
+            boardImage.setIcon(boardConstructorImage);
             gameRun.add(boardImage);
 
             newGame = new JButton("Nova Partida");
@@ -134,63 +134,63 @@
             txtPlayer2.setFont(new Font("Poppins", Font.PLAIN, 17));
             gameRun.add(txtPlayer2);
 
-            pontosLabel1 = new JLabel("Pontos: " + pontosPlayer1);
-            pontosLabel1.setForeground(Color.BLACK);
-            pontosLabel1.setBounds(500, 270, 300, 80);
-            pontosLabel1.setFont(new Font("Poppins", Font.PLAIN, 18));
-            gameRun.add(pontosLabel1);
+            scoreLabelX = new JLabel("Pontos: " + scorePlayerX);
+            scoreLabelX.setForeground(Color.BLACK);
+            scoreLabelX.setBounds(500, 270, 300, 80);
+            scoreLabelX.setFont(new Font("Poppins", Font.PLAIN, 18));
+            gameRun.add(scoreLabelX);
 
-            pontosLabel2 = new JLabel("Pontos: " + pontosPlayer2);
-            pontosLabel2.setForeground(Color.BLACK);
-            pontosLabel2.setBounds(500, 310, 300, 80);
-            pontosLabel2.setFont(new Font("Poppins", Font.PLAIN, 18));
-            gameRun.add(pontosLabel2);
+            scoreLabelO = new JLabel("Pontos: " + scorePlayerO);
+            scoreLabelO.setForeground(Color.BLACK);
+            scoreLabelO.setBounds(500, 310, 300, 80);
+            scoreLabelO.setFont(new Font("Poppins", Font.PLAIN, 18));
+            gameRun.add(scoreLabelO);
 
 
 
             // Botões do jogo da velha
-            buttons = new JButton[3][3];
+            squareBoard = new JButton[3][3];
             int buttonSize = 100;
             int xOffset = 20;
             int yOffset = 90;
 
             for (int row = 0; row < 3; row++) {
                 for (int col = 0; col < 3; col++) {
-                    buttons[row][col] = new JButton();
-                    buttons[row][col].setBounds(xOffset + col * (buttonSize + 10), yOffset + row * (buttonSize + 10), buttonSize, buttonSize);
-                    buttons[row][col].setBackground(new Color(238, 238, 238));
-                    buttons[row][col].setBorder(null);
-                    buttons[row][col].setFocusPainted(false);
-                    buttons[row][col].addActionListener(new ActionListener() {
+                    squareBoard[row][col] = new JButton();
+                    squareBoard[row][col].setBounds(xOffset + col * (buttonSize + 10), yOffset + row * (buttonSize + 10), buttonSize, buttonSize);
+                    squareBoard[row][col].setBackground(new Color(238, 238, 238));
+                    squareBoard[row][col].setBorder(null);
+                    squareBoard[row][col].setFocusPainted(false);
+                    squareBoard[row][col].addActionListener(new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
-                            if (!jogoAcabou) {
+                            if (!gameOver) {
                                 JButton button = (JButton) e.getSource();
                                 if (button.getText().isEmpty()) {
-                                    if (jogador1Vez) {
+                                    if (firstPlayer) {
                                         button.setText("X");
                                         button.setFont(new Font("Poppins h", Font.PLAIN, 80));
 
-                                        jogador1Vez = false;
+                                        firstPlayer = false;
                                     } else {
                                         button.setText("O");
                                         button.setFont(new Font("Poppins h", Font.PLAIN, 80));
 
-                                        jogador1Vez = true;
+                                        firstPlayer = true;
                                     }
                                     button.setEnabled(false); // Desativar o botão após a jogada
 
                                     // Verificar vitória após a jogada
                                     if (verificarVitoria()) {
-                                        jogoAcabou = true;
-                                        String nomeVencedor = jogador1Vez ? nomeJogo2.getText() : nomeJogo1.getText();
+                                        gameOver = true;
+                                        String nomeVencedor = firstPlayer ? inputPlayerO.getText() : inputPlayerX.getText();
                                         JOptionPane.showMessageDialog(null, "Jogador " + nomeVencedor + " venceu!", "Fim do Jogo", JOptionPane.INFORMATION_MESSAGE);
 
                                         // Atualizar a pontuação do jogador vencedor
-                                        if (jogador1Vez) {
-                                            pontosPlayer2++;
+                                        if (firstPlayer) {
+                                            scorePlayerO++;
                                         } else {
-                                            pontosPlayer1++;
+                                            scorePlayerX++;
                                         }
                                         atualizarPontuacao();
                                     } else {
@@ -201,7 +201,7 @@
                         }
                     });
 
-                    gameRun.add(buttons[row][col]);
+                    gameRun.add(squareBoard[row][col]);
                 }
             }
 
@@ -230,7 +230,7 @@
             // Verificar se todas as células estão preenchidas
             for (int row = 0; row < 3; row++) {
                 for (int col = 0; col < 3; col++) {
-                    if (buttons[row][col].getText().isEmpty()) {
+                    if (squareBoard[row][col].getText().isEmpty()) {
                         todasAsCelulasPreenchidas = false;
                         break;
                     }
@@ -246,27 +246,27 @@
         private boolean verificarVitoria() {
             // Verificar linhas e colunas
             for (int i = 0; i < 3; i++) {
-                if (!buttons[i][0].getText().isEmpty() &&
-                    buttons[i][0].getText().equals(buttons[i][1].getText()) &&
-                    buttons[i][0].getText().equals(buttons[i][2].getText())) {
+                if (!squareBoard[i][0].getText().isEmpty() &&
+                    squareBoard[i][0].getText().equals(squareBoard[i][1].getText()) &&
+                    squareBoard[i][0].getText().equals(squareBoard[i][2].getText())) {
                     return true; // Linha vencedora
                 }
-                if (!buttons[0][i].getText().isEmpty() &&
-                    buttons[0][i].getText().equals(buttons[1][i].getText()) &&
-                    buttons[0][i].getText().equals(buttons[2][i].getText())) {
+                if (!squareBoard[0][i].getText().isEmpty() &&
+                    squareBoard[0][i].getText().equals(squareBoard[1][i].getText()) &&
+                    squareBoard[0][i].getText().equals(squareBoard[2][i].getText())) {
                     return true; // Coluna vencedora
                 }
             }
 
             // Verificar diagonais
-           if (!buttons[0][0].getText().isEmpty() &&
-                buttons[0][0].getText().equals(buttons[1][1].getText()) &&
-                buttons[0][0].getText().equals(buttons[2][2].getText())) {
+           if (!squareBoard[0][0].getText().isEmpty() &&
+                squareBoard[0][0].getText().equals(squareBoard[1][1].getText()) &&
+                squareBoard[0][0].getText().equals(squareBoard[2][2].getText())) {
                 return true; // Diagonal principal
             }
-            if (!buttons[0][2].getText().isEmpty() &&
-                buttons[0][2].getText().equals(buttons[1][1].getText()) &&
-                buttons[0][2].getText().equals(buttons[2][0].getText())) {
+            if (!squareBoard[0][2].getText().isEmpty() &&
+                squareBoard[0][2].getText().equals(squareBoard[1][1].getText()) &&
+                squareBoard[0][2].getText().equals(squareBoard[2][0].getText())) {
                 return true; // Diagonal secundária
             }
 
@@ -277,40 +277,40 @@
         private void reiniciarJogo() {
             for (int row = 0; row < 3; row++) {
                 for (int col = 0; col < 3; col++) {
-                    buttons[row][col].setText("");
-                    buttons[row][col].setEnabled(true); // Reativar os botões
+                    squareBoard[row][col].setText("");
+                    squareBoard[row][col].setEnabled(true); // Reativar os botões
                 }
             }
-            jogoAcabou = false;
-            jogador1Vez = true;
+            gameOver = false;
+            firstPlayer = true;
         }
 
         // Método para zerar o placar
         private void zerarPlacar() {
-            pontosPlayer1 = 0;
-            pontosPlayer2 = 0;
+            scorePlayerX = 0;
+            scorePlayerO = 0;
             atualizarPontuacao();
             reiniciarJogo(); // Reiniciar o jogo após zerar o placar
         }
 
 
         private void atualizarPontuacao() {
-            pontosLabel1.setText(nomeJogo1.getText()+" - Pontos: " + pontosPlayer1);
-            pontosLabel2.setText(nomeJogo2.getText()+ " - Pontos: " + pontosPlayer2);
+            scoreLabelX.setText(inputPlayerX.getText()+" - Pontos: " + scorePlayerX);
+            scoreLabelO.setText(inputPlayerO.getText()+ " - Pontos: " + scorePlayerO);
             
         }
 
         @Override
         public void actionPerformed(ActionEvent event) {
-           nomeJogo1.setEnabled(false);
+           inputPlayerX.setEnabled(false);
     
-           pontosLabel1.setText(nomeJogo1.getText()+" - Pontos: " + pontosPlayer1);
+           scoreLabelX.setText(inputPlayerX.getText()+" - Pontos: " + scorePlayerX);
         }
 
         public void ActionPlayer2(ActionEvent event){
-            nomeJogo2.setEnabled(false);
+            inputPlayerO.setEnabled(false);
                 
-             pontosLabel2.setText(nomeJogo2.getText()+ " - Pontos: " + pontosPlayer2);
+             scoreLabelO.setText(inputPlayerO.getText()+ " - Pontos: " + scorePlayerO);
              tabbedPane.addTab("Jogar", null, gameRun, "Se prepare para jogar!");
 
         }
