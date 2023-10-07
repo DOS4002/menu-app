@@ -31,6 +31,10 @@
         private Image editBoard;
         private ImageIcon boardConstructorImage;
         private JTabbedPane tabbedPane;
+        private ImageIcon iconPlayerX;
+        private ImageIcon iconPlayerO;
+        private Image editIconPlayer;
+        private ImageIcon iconPlayGame;
 
         public JogoVelha(Menu tictacToe) {
             this.setTitle("Jogo da Velha");
@@ -41,7 +45,7 @@
             this.setResizable(false);
             this.setModal(true);
 
-            JTabbedPane tabbedPane = new JTabbedPane();
+            tabbedPane = new JTabbedPane();
 
             JPanel jogador1 = new JPanel();
             jogador1.setLayout(null);
@@ -64,7 +68,11 @@
             buttonPlayer1.addActionListener(this);
             jogador1.add(buttonPlayer1);
 
-            tabbedPane.addTab("Jogador X", null, jogador1, "Digite o nome do primeiro jogador:");
+            iconPlayerX = new ImageIcon("src/gameImg/x.png");
+            editIconPlayer = iconPlayerX.getImage().getScaledInstance(5, 5, Image.SCALE_SMOOTH);
+            iconPlayerX = new ImageIcon(editIconPlayer);
+
+            tabbedPane.addTab("Jogador X", iconPlayerX, jogador1, "Digite o nome do primeiro jogador:");
 
             JPanel jogador2 = new JPanel();
             jogador2.setLayout(null);
@@ -85,14 +93,21 @@
             buttonPlayer2.setBackground(new Color(255, 255, 255));
             buttonPlayer2.setBounds(5, 100, 100, 40);
             buttonPlayer2.setFocusPainted(false);
-            buttonPlayer2.addActionListener(this::ActionPlayer2); 
+            buttonPlayer2.addActionListener(this::ActionPlayerO); 
             jogador2.add(buttonPlayer2);
 
-            tabbedPane.addTab("Jogador O", null, jogador2, "Digite o nome do segundo jogador:");
+            iconPlayerO = new ImageIcon("src/gameImg/circulo.png");
+            editIconPlayer = iconPlayerO.getImage().getScaledInstance(5, 5, Image.SCALE_SMOOTH);
+            iconPlayerO = new ImageIcon(editIconPlayer);
+
+            tabbedPane.addTab("Jogador O", iconPlayerO, jogador2, "Digite o nome do segundo jogador:");
+
+            iconPlayGame = new ImageIcon("src/gameImg/play.png");
+            editIconPlayer = iconPlayGame.getImage().getScaledInstance(5, 5, Image.SCALE_SMOOTH);
+            iconPlayGame = new ImageIcon(editIconPlayer);
 
             gameRun = new JPanel();
-            gameRun.setLayout(null);
-
+            gameRun.setLayout(null); 
 
             titleGame = new JLabel("JOGO DA VELHA");
             titleGame.setBounds(510, 90, 200, 50);    
@@ -149,7 +164,6 @@
 
 
 
-            // Botões do jogo da velha
             squareBoard = new JButton[3][3];
             int buttonSize = 100;
             int xOffset = 20;
@@ -304,28 +318,25 @@
         @Override
         public void actionPerformed(ActionEvent event) {
            inputPlayerX.setEnabled(false);
-    
            scoreLabelX.setText(inputPlayerX.getText()+" - Pontos: " + scorePlayerX);
            if(inputPlayerX.getText().isEmpty()){
-               JOptionPane.showMessageDialog(null, "Digite o nome do jogador X", "Erro", JOptionPane.ERROR_MESSAGE);
+                inputPlayerX.setEnabled(true);
+                JOptionPane.showMessageDialog(null, "Digite o nome do jogador X", "Erro", JOptionPane.ERROR_MESSAGE);
            }
         }
 
-        public void ActionPlayer2(ActionEvent event){
+        public void ActionPlayerO(ActionEvent event){
             inputPlayerO.setEnabled(false);
                 
              scoreLabelO.setText(inputPlayerO.getText()+ " - Pontos: " + scorePlayerO);
                 if(inputPlayerO.getText().isEmpty()){
+                    inputPlayerO.setEnabled(true);
                     JOptionPane.showMessageDialog(null, "Digite o nome do jogador O", "Erro", JOptionPane.ERROR_MESSAGE);
                 }
 
-        }
-
-        public void ActionAddTabbedPane(ActionEvent event){
-            if(inputPlayerX.getText().isBlank() == false && inputPlayerO.getText().isBlank() == false){
-                 tabbedPane.addTab("Jogar", null, gameRun, "Se prepare para jogar!");
+                if(inputPlayerX.getText().isEmpty() == false && inputPlayerO.getText().isEmpty() == false){
+                 tabbedPane.addTab("Jogar", iconPlayGame, gameRun, "Se prepare para jogar!");
             }
         }
 
     }
- 

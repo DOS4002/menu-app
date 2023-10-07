@@ -145,7 +145,7 @@ public class Menu extends JFrame{
 		});
 		
 		sair.addActionListener(new ActionListener(){
-
+			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				int sair =	JOptionPane.showConfirmDialog(null,"Você quer sair do Menu de aplicativos ?","Atenção", JOptionPane.YES_NO_OPTION);
