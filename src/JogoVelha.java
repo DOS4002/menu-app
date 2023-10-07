@@ -41,7 +41,7 @@
             this.setSize(780, 630);
             this.setLocationRelativeTo(null);
             this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-            this.getContentPane().setBackground(Color.WHITE);
+            this.getContentPane().setBackground(Color.BLACK);
             this.setResizable(false);
             this.setModal(true);
 
@@ -184,12 +184,12 @@
                                 if (button.getText().isEmpty()) {
                                     if (firstPlayer) {
                                         button.setText("X");
-                                        button.setFont(new Font("Poppins h", Font.PLAIN, 80));
+                                        button.setFont(new Font("Poppins", Font.PLAIN, 60));
 
                                         firstPlayer = false;
                                     } else {
                                         button.setText("O");
-                                        button.setFont(new Font("Poppins h", Font.PLAIN, 80));
+                                        button.setFont(new Font("Poppins", Font.PLAIN, 60));
 
                                         firstPlayer = true;
                                     }

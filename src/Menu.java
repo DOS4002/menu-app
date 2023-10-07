@@ -47,7 +47,7 @@ public class Menu extends JFrame{
 		
 		archivMenu.add(sair);
 		
-		calculadora.add(concessionariaApp);
+		calculadora.add(calculatorApp);
 	
 		concessionariaApp.add(cdCars);
 
@@ -100,7 +100,7 @@ public class Menu extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if(calculadoraDialog == null){
-					Calculadora calculadoraDialog = new Calculadora(Menu.this);
+					calculadoraDialog = new Calculadora(Menu.this);
 				}
 				calculadoraDialog.setVisible(true);
 				
@@ -114,7 +114,7 @@ public class Menu extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 					
 						if(concessionariaDialog == null){
-							Concessionaria concessionariaDialog = new Concessionaria(Menu.this);
+							concessionariaDialog = new Concessionaria(Menu.this);
 						}
 					
 					concessionariaDialog.setVisible(true);
@@ -163,7 +163,7 @@ public class Menu extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent events) {
 				if(tictactoeDialog == null){
-					JogoVelha tictactoeDialog = new JogoVelha(Menu.this);
+					tictactoeDialog = new JogoVelha(Menu.this);
 				}
 				gameApp.setVisible(true);
 				
